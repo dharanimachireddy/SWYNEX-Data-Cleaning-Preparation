@@ -1,120 +1,79 @@
-# SWYNEX Data Cleaning & Preparation – Retail Sales Dataset
+# 🧹 Data Cleaning & Preparation – Retail Store Sales
 
 ## 📌 Project Overview
 
-This project was completed as part of my Data Analyst internship at SWYNEX Technologies.
+This project was completed as part of my **SWYNEX Technologies Internship – Task 1: Data Cleaning & Preparation**.
 
-The objective of this task was to clean, transform, validate, and prepare a public retail sales dataset for further data analysis.
+The objective of this task was to take a real-world retail sales dataset and prepare it for further analysis by identifying and handling:
 
-The dataset contains transaction-level retail sales information including customer details, product categories, prices, quantities, payment methods, locations, transaction dates, and discount information.
+- Missing values
+- Duplicate records
+- Incorrect data types
+- Inconsistent categorical values
+- Data quality issues
 
----
-
-## 🎯 Objectives
-
-The key objectives of this project were:
-
-- Identify missing and invalid values
-- Handle missing values appropriately
-- Identify and handle duplicate records
-- Check data consistency
-- Correct data formatting and data types
-- Validate numerical values using logical calculations
-- Prepare a clean dataset for further analysis
+The dataset was cleaned using **Microsoft Excel**, and the final cleaned dataset was exported as a CSV file and uploaded to GitHub.
 
 ---
 
 ## 📊 Dataset
 
-**Dataset:** Retail Store Sales Dataset
+**Dataset:** Retail Store Sales  
+**Source:** Public Kaggle Dataset
 
-**Type:** Public Dataset
+The dataset contains **12,575 records** and **11 columns**.
 
-### Main Columns
+### Columns
 
 | Column | Description |
 |---|---|
-| Transaction ID | Unique identifier for each transaction |
-| Customer ID | Identifier for the customer |
+| Transaction ID | Unique transaction identifier |
+| Customer ID | Customer identifier |
 | Category | Product category |
 | Item | Product/item name |
-| Price Per Unit | Price of one unit |
+| Price Per Unit | Price of one unit of the product |
 | Quantity | Number of units purchased |
-| Total Spent | Total transaction amount |
+| Total Spent | Total amount spent in the transaction |
 | Payment Method | Method used for payment |
-| Location | Online or In-store |
-| Transaction Date | Date of transaction |
+| Location | Transaction location/channel |
+| Transaction Date | Date of the transaction |
 | Discount Applied | Whether a discount was applied |
 
 ---
 
-## 🧹 Data Cleaning Performed
+## 🔍 Data Quality Issues Identified
 
-The dataset was cleaned using **Microsoft Excel**.
+During the initial inspection, the following missing values were identified:
 
-### 1. Missing Values
-- Identified missing values across important columns.
-- Recovered values where they could be logically derived.
-- Used `unknown` for Item values that could not be reliably recovered.
-- Used `UNKNOWN` for unavailable Discount Applied values.
+| Issue | Count |
+|---|---:|
+| Missing Item | 1,213 |
+| Missing Price Per Unit | 609 |
+| Missing Quantity | 604 |
+| Missing Total Spent | 604 |
+| Missing Discount Applied | 4,199 |
 
-### 2. Data Validation
-- Checked relationships between Price Per Unit, Quantity, and Total Spent.
-- Verified that calculated values were logically consistent.
-
-### 3. Consistency Checks
-- Checked Payment Method values.
-- Checked Location values.
-- Checked Category and Item formatting.
-- Checked Transaction Date formatting.
-
-### 4. Duplicate Check
-- Checked the dataset for duplicate records using Excel's **Remove Duplicates** feature.
-
-### 5. Final Dataset
-After cleaning and validation, the processed dataset was exported as a CSV file for further analysis.
+The dataset was also checked for duplicate records, incorrect data types, and inconsistent categorical values.
 
 ---
 
-## 🛠️ Tools Used
+## 🛠️ Data Cleaning Performed
 
-- Microsoft Excel
-- GitHub
-- CSV
+### 1. Missing Item Values
 
----
+Missing values in the **Item** column were replaced with:
 
-## 📁 Project Files
+`unknown`
 
-- `retail_store_sales_cleaned.csv` – Cleaned dataset
-- `README.md` – Project documentation
+This provided a consistent placeholder while preserving the affected records.
 
 ---
 
-## 📈 Outcome
+### 2. Missing Quantity Values
 
-The raw retail sales dataset was cleaned and prepared for further data analysis.
+The missing values in the **Quantity** column were handled using **median imputation**.
 
-This task provided practical experience in:
+The median of the available Quantity values was calculated using:
 
-- Data cleaning
-- Missing-value handling
-- Data validation
-- Data consistency checking
-- Duplicate detection
-- Excel-based data preparation
-- GitHub project documentation
-
----
-
-## 👩‍💻 Author
-
-**Dharani Machireddy**
-
-B.Tech – Artificial Intelligence & Data Science
-
----
-
-## 🔗 Project Repository
-
-This repository contains the cleaned dataset and documentation for the SWYNEX Data Cleaning & Preparation task.
+```excel
+=MEDIAN(F2:F12576)
