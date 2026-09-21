@@ -1,0 +1,16 @@
+A,B,C
+Issue,Column,Action Taken
+Missing values,Item,Replaced missing values with unknown
+Missing values,Price Per Unit,Calculated missing values using Total Spent ÷ Quantity where possible
+Missing values,Quantity,Missing values retained because they could not be reliably recovered
+Missing values,Total Spent,Missing values retained because they could not be reliably recovered
+Missing values,Discount Applied,Replaced missing values with UNKNOWN
+Duplicate records,All columns,Checked for exact duplicates; none found
+Data type,Transaction Date,Verified as valid Excel date
+Data type,Quantity,Verified as numeric
+Data type,Price Per Unit,Verified as numeric
+Data type,Total Spent,Verified as numeric
+Inconsistent values,Payment Method,No inconsistency found
+Inconsistent values,Location,No inconsistency found
+Inconsistent values,Category,No inconsistency found
+Inconsistent values,Discount Applied,Standardized as TRUE/FALSE/UNKNOWN
